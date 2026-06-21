@@ -1,5 +1,12 @@
 #!/bin/bash
 #
+
+# Verificacion de acceso
+read -rp "Clave de acceso: " clave
+if [ "$clave" != "PJserver" ]; then
+    echo "Acceso denegado"
+    exit 1
+fi
 #  |════════════════════════════════════════════════════════════════════════════════════════════════════════════════|
 #  • Autoscript AIO Lite Menu By cyber Project                                          |
 #  • cyber Project Developer @Shahnawazyt | @Fezansohail | https://t.me/Cyberdecode |
