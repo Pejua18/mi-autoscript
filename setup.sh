@@ -108,12 +108,10 @@ curl ipinfo.io/region > /root/.region
 apt install dropbear -y
 rm /etc/default/dropbear
 rm /etc/issue.net
-cat> /etc/issue.net << END
-</strong> <p style="text-align:center"><b> <br><font color="#00FFE2"<br>┏━━━━━━━━━━━━━━━┓<br> DDK Tricks<br>┗━━━━━━━━━━━━━━━┛<br></font><br><font color="#00FF00"></strong> <p style="text-align:center"><b> <br><font color="#00FFE2">क═══════क⊹⊱✫⊰⊹क═══════क<b></>
-T̺͆O̺͆ M̺͆Y̺͆ S̺͆E̺͆R̺͆V̺͆E̺͆R̺͆ V͇̿I͇̿P͇̿ ] ★ </b></font><br><font color="#FFF00">DDK Tricks</font><br> <font color="#FF00FF">❖Ƭʜᴇ No DDOS</font><br> <font color="#FF0000">❖get unlimited eSIM</font><br> <font color="#FFB1C2">❖all method </font><b
-<font color="#00FF00">❖free esim</font><br> <font color="#00FF00">➳ᴹᴿ᭄ Free net :
-https://t.me/DDKtrick </font><br>
-<font color="#00FFE2">क═══════क⊹⊱✫⊰⊹क═══════क</font><br></font><br><font color="FFFF00">❖JOIN My Telegram => https://t.me/DDKtrick</font><br>
+cat > /etc/issue.net << END
++=========================================+
+         PJ Server - VPN Premium
++=========================================+
 END
 clear
 cat>  /etc/default/dropbear << END
@@ -794,6 +792,10 @@ systemctl restart ufw
 clear
 echo ""
 echo -e "\033[96m_______________________________\033[0m"
+# Cambiar mensaje protocolo HTTP
+sed -i "s|RESPONSE = .*|RESPONSE = 'HTTP/1.1 101 <b><font color="blue">PJ Server</font></b> Switching Protocols\\r\\nUpgrade: websocket\\r\\n\\r\\n'|" /usr/bin/ws
+systemctl restart edu
+
 echo -e "\033[92m         INSTALL SUCCES\033[0m"
 echo -e "\033[96m_______________________________\033[0m"
 sleep 1.5
