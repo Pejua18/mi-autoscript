@@ -810,7 +810,6 @@ with open(path, "w") as f:
     f.write(content)
 PYEOF
 systemctl restart edu
-systemctl restart edu
 
 echo -e "\033[92m         INSTALL SUCCES\033[0m"
 echo -e "\033[96m_______________________________\033[0m"
