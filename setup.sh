@@ -793,7 +793,23 @@ clear
 echo ""
 echo -e "\033[96m_______________________________\033[0m"
 # Cambiar mensaje protocolo HTTP
-sed -i "s|RESPONSE = .*|RESPONSE = 'HTTP/1.1 101 <b><font color="blue">PJ Server</font></b> Switching Protocols\\r\\nUpgrade: websocket\\r\\n\\r\\n'|" /usr/bin/ws
+python3 - <<'PYEOF'
+path = "/usr/bin/ws"
+with open(path, "r") as f:
+    content = f.read()
+
+for line in content.splitlines():
+    if line.startswith("RESPONSE = "):
+        old_line = line
+        break
+
+new_line = "RESPONSE = 'HTTP/1.1 101 <b><font color=blue>PJ Server</font></b> Switching Protocols\\r\\nUpgrade: websocket\\r\\n\\r\\n'"
+content = content.replace(old_line, new_line)
+
+with open(path, "w") as f:
+    f.write(content)
+PYEOF
+systemctl restart edu
 systemctl restart edu
 
 echo -e "\033[92m         INSTALL SUCCES\033[0m"
